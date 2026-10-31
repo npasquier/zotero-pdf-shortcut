@@ -8,6 +8,15 @@ var registeredMenuID;
 var pluginRootURI;
 const FTL = "finder-shortcut.ftl";
 const LABEL = "Copy Finder Shortcut";
+const ACCEL_TEXT = "⌥⌘C";
+const keyListeners = new WeakMap();
+
+function runCopy(items) {
+  copyFinderShortcuts(items || []).catch(e => {
+    Zotero.logError(e);
+    Services.prompt.alert(null, "Finder Shortcut – error", String(e));
+  });
+}
 
 function install() {}
 function uninstall() {}
@@ -27,13 +36,10 @@ function startup({ id, rootURI }) {
         if (!context.menuElem.getAttribute("label")) {
           context.menuElem.setAttribute("label", LABEL);
         }
+        // Show the keyboard shortcut next to the menu entry
+        context.menuElem.setAttribute("acceltext", ACCEL_TEXT);
       },
-      onCommand: (event, context) => {
-        copyFinderShortcuts(context.items || []).catch(e => {
-          Zotero.logError(e);
-          Services.prompt.alert(null, "Finder Shortcut – error", String(e));
-        });
-      },
+      onCommand: (event, context) => runCopy(context.items),
     }],
   });
 
@@ -42,10 +48,30 @@ function startup({ id, rootURI }) {
 
 function onMainWindowLoad({ window }) {
   window.MozXULElement.insertFTLIfNeeded(FTL);
+
+  // Keyboard shortcut: Option-Command-C in the library view
+  if (keyListeners.has(window)) return;
+  const listener = (event) => {
+    if (event.code !== "KeyC" || !event.metaKey || !event.altKey
+        || event.shiftKey || event.ctrlKey) return;
+    if (window.Zotero_Tabs && window.Zotero_Tabs.selectedType !== "library") return;
+    const items = window.ZoteroPane.getSelectedItems();
+    if (!items.length) return;
+    event.preventDefault();
+    event.stopPropagation();
+    runCopy(items);
+  };
+  window.addEventListener("keydown", listener, true);
+  keyListeners.set(window, listener);
 }
 
 function onMainWindowUnload({ window }) {
   window.document.querySelector(`[href="${FTL}"]`)?.remove();
+  const listener = keyListeners.get(window);
+  if (listener) {
+    window.removeEventListener("keydown", listener, true);
+    keyListeners.delete(window);
+  }
 }
 
 function shutdown() {

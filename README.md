@@ -33,6 +33,7 @@ Double-clicking an alias opens the PDF in your default PDF app (Preview, for exa
 ## Features
 
 - **One click.** The entry sits directly in the item right-click menu, not in a submenu.
+- **Keyboard shortcut.** Press **⌥⌘C** (Option-Command-C) in the library to copy without opening the menu.
 - **Several items at once.** Select several items and all their shortcuts are copied together.
 - **Survives renaming.** A Finder alias follows its file, so the shortcut keeps working when Zotero renames or moves the attachment after a metadata change.
 - **Reusable.** Paste the same shortcuts into as many folders as you like.
@@ -55,7 +56,7 @@ Double-clicking an alias opens the PDF in your default PDF app (Preview, for exa
 ## Usage
 
 1. Select one or more items in Zotero. You can select the parent item or a specific attachment.
-2. Right-click and choose **Copy Finder Shortcut**.
+2. Right-click and choose **Copy Finder Shortcut**, or press **⌥⌘C**.
 3. Open a Finder folder and press **⌘V**.
 
 ### Which file is used?
