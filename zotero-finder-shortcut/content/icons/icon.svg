@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E0474C"/>
+      <stop offset="1" stop-color="#B3222B"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF1F5"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect x="4" y="4" width="88" height="88" rx="20" fill="url(#bg)"/>
+  <!-- document -->
+  <g filter="url(#sh)">
+    <path d="M30 16 H56 L70 30 V78 a4 4 0 0 1 -4 4 H30 a4 4 0 0 1 -4 -4 V20 a4 4 0 0 1 4 -4 Z" fill="url(#page)"/>
+    <path d="M56 16 V26 a4 4 0 0 0 4 4 H70 Z" fill="#C9D0DA"/>
+  </g>
+  <rect x="33" y="38" width="30" height="3.5" rx="1.75" fill="#C9D0DA"/>
+  <rect x="33" y="46" width="30" height="3.5" rx="1.75" fill="#C9D0DA"/>
+  <rect x="33" y="54" width="20" height="3.5" rx="1.75" fill="#C9D0DA"/>
+  <text x="56" y="74" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="11" fill="#C3262E" letter-spacing="0.5">PDF</text>
+  <!-- shortcut badge -->
+  <g filter="url(#sh)">
+    <circle cx="26" cy="70" r="14" fill="#1F2430"/>
+  </g>
+  <path d="M20.5 76.5 V71 a5.5 5.5 0 0 1 5.5 -5.5 H31.5" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 61 L32.5 65.5 L28 70" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
