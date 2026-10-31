@@ -8,7 +8,7 @@ var registeredMenuID;
 var pluginRootURI;
 const FTL = "finder-shortcut.ftl";
 const LABEL = "Copy Finder Shortcut";
-const ACCEL_TEXT = "⌥⌘C";
+const ACCEL_TEXT = "⌘C";
 const keyListeners = new WeakMap();
 
 function runCopy(items) {
@@ -16,6 +16,15 @@ function runCopy(items) {
     Zotero.logError(e);
     Services.prompt.alert(null, "Finder Shortcut – error", String(e));
   });
+}
+
+function isTextField(el) {
+  while (el) {
+    const tag = (el.localName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea" || tag === "search-textbox" || el.isContentEditable) return true;
+    el = el.parentNode && el.parentNode.nodeType === 1 ? el.parentNode : null;
+  }
+  return false;
 }
 
 function install() {}
@@ -49,12 +58,20 @@ function startup({ id, rootURI }) {
 function onMainWindowLoad({ window }) {
   window.MozXULElement.insertFTLIfNeeded(FTL);
 
-  // Keyboard shortcut: Option-Command-C in the library view
+  // Keyboard shortcuts in the library view:
+  //   ⌘C  when the item list has focus (replaces Zotero's own item copy)
+  //   ⌥⌘C anywhere in the library, except in text fields
   if (keyListeners.has(window)) return;
   const listener = (event) => {
-    if (event.code !== "KeyC" || !event.metaKey || !event.altKey
-        || event.shiftKey || event.ctrlKey) return;
+    if (event.code !== "KeyC" || !event.metaKey || event.shiftKey || event.ctrlKey) return;
     if (window.Zotero_Tabs && window.Zotero_Tabs.selectedType !== "library") return;
+    const target = event.composedTarget || event.target;
+    if (isTextField(target)) return;
+    if (!event.altKey) {
+      // Plain ⌘C: only when the focus is in the item list
+      const tree = window.document.getElementById("zotero-items-tree");
+      if (tree && !tree.contains(target)) return;
+    }
     const items = window.ZoteroPane.getSelectedItems();
     if (!items.length) return;
     event.preventDefault();

@@ -33,7 +33,7 @@ Double-clicking an alias opens the PDF in your default PDF app (Preview, for exa
 ## Features
 
 - **One click.** The entry sits directly in the item right-click menu, not in a submenu.
-- **Keyboard shortcut.** Press **⌥⌘C** (Option-Command-C) in the library to copy without opening the menu.
+- **Keyboard shortcut.** Press **⌘C** in the item list (or **⌥⌘C** anywhere in the library) to copy without opening the menu.
 - **Several items at once.** Select several items and all their shortcuts are copied together.
 - **Survives renaming.** A Finder alias follows its file, so the shortcut keeps working when Zotero renames or moves the attachment after a metadata change.
 - **Reusable.** Paste the same shortcuts into as many folders as you like.
@@ -56,7 +56,7 @@ Double-clicking an alias opens the PDF in your default PDF app (Preview, for exa
 ## Usage
 
 1. Select one or more items in Zotero. You can select the parent item or a specific attachment.
-2. Right-click and choose **Copy Finder Shortcut**, or press **⌥⌘C**.
+2. Press **⌘C**, or right-click and choose **Copy Finder Shortcut**.
 3. Open a Finder folder and press **⌘V**.
 
 ### Which file is used?
@@ -69,6 +69,7 @@ Double-clicking an alias opens the PDF in your default PDF app (Preview, for exa
 
 - **Annotations.** The PDF opens outside Zotero, so annotations you make there are saved into the PDF file itself, not into Zotero's annotation layer. Use Zotero's reader when you want annotations stored in Zotero.
 - **Clipboard.** Copying shortcuts replaces whatever was on your clipboard.
+- **⌘C replaces Zotero's item copy.** In the item list, ⌘C copies Finder shortcuts instead of citations. Use **⌘⇧C** (Zotero's Quick Copy) or **⌘⇧A** to copy bibliographies and citations. ⌘C in text fields works as usual.
 
 ## How it works
 
