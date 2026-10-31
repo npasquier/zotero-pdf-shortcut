@@ -1,10 +1,10 @@
 {
   "addons": {
-    "finder-shortcut@pasquier-cavalli": {
+    "finder-shortcut@npasquier": {
       "updates": [
         {
           "version": "1.1.0",
-          "update_link": "https://github.com/npasquier/zotero-finder-shortcut/releases/download/v1.1.0/finder-shortcut.xpi",
+          "update_link": "https://github.com/npasquier/zotero-pdf-shortcut/releases/download/v1.1.0/finder-shortcut.xpi",
           "applications": {
             "zotero": {
               "strict_min_version": "8.0",

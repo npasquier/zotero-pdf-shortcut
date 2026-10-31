@@ -3,16 +3,16 @@
   "name": "Finder Shortcut",
   "version": "1.1.0",
   "description": "Copy Finder aliases to the PDFs of the selected items, then paste them in any Finder folder.",
-  "author": "Nicolas Pasquier-Cavalli",
+  "author": "Nicolas Pasquier",
   "applications": {
     "zotero": {
-      "id": "finder-shortcut@pasquier-cavalli",
-      "update_url": "https://raw.githubusercontent.com/npasquier/zotero-finder-shortcut/main/updates.json",
+      "id": "finder-shortcut@npasquier",
+      "update_url": "https://raw.githubusercontent.com/npasquier/zotero-pdf-shortcut/main/updates.json",
       "strict_min_version": "8.0",
       "strict_max_version": "12.*"
     }
   },
-  "homepage_url": "https://github.com/npasquier/zotero-finder-shortcut",
+  "homepage_url": "https://github.com/npasquier/zotero-pdf-shortcut",
   "icons": {
     "48": "content/icons/icon@48.png",
     "96": "content/icons/icon.png"

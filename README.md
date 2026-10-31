@@ -119,4 +119,4 @@ Please report other problems in [Issues](../../issues).
 
 ## License
 
-[MIT](LICENSE) © 2026 Nicolas Pasquier-Cavalli
+[MIT](LICENSE) © 2026 Nicolas Pasquier
